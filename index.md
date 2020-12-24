@@ -1,6 +1,6 @@
 ## Welcome comebey to GitHub Pages
 
-### Shadowsocks-TCP
+## 1.Shadowsocks-TCP
 ```json
 {
     "log": {
@@ -45,6 +45,200 @@
 }
 
 ```
+### 2.Socks5-TLS
+```
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 1234,
+            "protocol": "socks",
+            "settings": {
+                "auth": "password",
+                "accounts": [
+                    {
+                        "user": "",
+                        "pass": ""
+                    }
+                ],
+                "udp": true,
+                "ip": "127.0.0.1"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "certificates": [
+                        {
+                            "certificateFile": "/path/to/certificate.crt",
+                            "keyFile": "/path/to/key.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
+
+```
+
+### 3.Trojan-TCP-TLS (minimal)
+```
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 443,
+            "protocol": "trojan",
+            "settings": {
+                "clients": [
+                    {
+                        "password":"your password",
+                        "email": "love@example.com"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "http/1.1"
+                    ],
+                    "certificates": [
+                        {
+                            "certificateFile": "/path/to/fullchain.crt",
+                            "keyFile": "/path/to/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
+```
+### 4.VMess-Websocket-TLS
+```
+### Caddyfile
+xx.com {
+    root * /var/www
+    file_server
+    
+    reverse_proxy /path 127.0.0.1:2001 {
+        transport http {
+            versions h2c
+        }
+    }
+}
+
+### server.json
+
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 2001,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "email": "love@example.com"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "security": "none",
+        "network": "h2",
+        "httpSettings": {
+          "path": "/path",
+          "host": [
+            "xx.com"
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
+
+```
+### 5.VLESS-mKCPSeed
+### 6.VLESS-TCP
+### 7.VLESS-TCP-TLS
+### 8.VLESS-TCP-TLS (maximal by rprx)
+### 9.VLESS-TCP-TLS (minimal by rprx)
+### 10.VLESS-TCP-TLS-proxy protocol
+### 11.VLESS-TCP-TLS-WS (recommended)
+### 12.VLESS-TCP-XTLS-WHATEVER
+### 13.VMess-HTTP
+### 14.VMess-HTTP2
+### 15.VMess-mKCPSeed
+### 16.VMess-TCP
+### 17.VMess-TCP-TLS
+### 18.VMess-Websocket
+
+
+
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
