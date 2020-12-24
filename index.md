@@ -223,19 +223,84 @@ xx.com {
 
 ```
 ### 5.VLESS-mKCPSeed
+```
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "protocol": "vless",
+            "port": "{{ port }}",
+            "settings": {
+                "decryption":"none",
+                "clients": [
+                    {"id": "{{  }}"}
+                ]
+            },
+            "streamSettings": {
+                "network": "kcp",
+                "kcpSettings": {
+                    "seed": "{{ seed }}"
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {"protocol": "freedom"}
+    ]
+}
+
+```
 ### 6.VLESS-TCP
+```
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 1234,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "",
+                        "level": 0,
+                        "email": "love@example.com"
+                    }
+                ],
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "dest": 8001
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ]
+}
+```
 ### 7.VLESS-TCP-TLS
+```
+
+```
 ### 8.VLESS-TCP-TLS (maximal by rprx)
 ### 9.VLESS-TCP-TLS (minimal by rprx)
 ### 10.VLESS-TCP-TLS-proxy protocol
 ### 11.VLESS-TCP-TLS-WS (recommended)
 ### 12.VLESS-TCP-XTLS-WHATEVER
-### 13.VMess-HTTP
-### 14.VMess-HTTP2
-### 15.VMess-mKCPSeed
-### 16.VMess-TCP
-### 17.VMess-TCP-TLS
-### 18.VMess-Websocket
+
 
 
 
@@ -269,18 +334,5 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 # Socks5-TLS
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
-
-```markdown
-# Header 1
-Syntax highlighted code block
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
 
 
