@@ -1,10 +1,50 @@
-## Welcome to GitHub Pages
+## Welcome comebey to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/ComeBey/v2rayconfig/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Shadowsocks-TCP
+```json
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 1234,
+            "protocol": "shadowsocks",
+            "settings": {
+                "method": "chacha20-ietf-poly1305",
+                "password": "{{ password }}"
+        },
+            "streamSettings": {
+                "network": "tcp"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
+```
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
