@@ -2,5 +2,5 @@
 
 Forked from [comebey](https://github.com/ComeBey/v2config)
 
-#[Xray](https://XTLS.github.io)
-#[v2fly](https://www.v2fly.org/)
+1.[Xray web](https://XTLS.github.io)
+2.[v2fly web](https://www.v2fly.org/)
