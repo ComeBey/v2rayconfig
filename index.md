@@ -1,7 +1,5 @@
 # 目录
-## [GitHub](https://github.com/ComeBey/v2rayconfig).[comebey](https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg?sub_confirmation=1).
-[电报群](https://t.me/RootInstitute).
-[集合](https://linktr.ee/wangtao.lm).
+## [GitHub](https://github.com/ComeBey/v2rayconfig)-[youtube频道](https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg?sub_confirmation=1)-[电报群交流](https://t.me/RootInstitute)-[关于](https://linktr.ee/wangtao.lm)
 ## 1.Shadowsocks-TCP
 ```json
 {
