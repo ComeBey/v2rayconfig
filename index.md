@@ -489,7 +489,7 @@ Syntax highlighted code block
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 
-# 关于
+## 关于
 [comebey](https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg?sub_confirmation=1).
 [电报群](https://t.me/RootInstitute).
 [集合](https://linktr.ee/wangtao.lm).
