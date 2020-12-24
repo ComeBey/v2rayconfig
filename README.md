@@ -1,5 +1,5 @@
 # Xray-examples #V2fly-examples
 
-Forked from [rootfw.com](https://www.rootfw.com)
+Forked from [comebey](https://github.com/ComeBey/v2config)
 
 #[Xray-web] (https://xtls.github.io)
