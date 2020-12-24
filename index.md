@@ -38,7 +38,7 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 
 
 
-```json /usr/local/etc/v2ray/config.json
+```
 {
     "log": {
         "loglevel": "warning"
