@@ -348,7 +348,7 @@ xx.com {
     ]
 }
 ```
-### 11.VLESS-TCP-TLS-WS
+### 8.VLESS-TCP-TLS-WS
 ```
 {
     "log": {
@@ -426,7 +426,7 @@ xx.com {
 }
 
 ```
-### 12.VLESS-TCP-XTLS-TLS
+### 9.VLESS-TCP-XTLS-TLS
 ```
 {
     "log": {
