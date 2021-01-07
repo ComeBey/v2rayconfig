@@ -1,14 +1,14 @@
 {
     "log": {
-        "loglevel": "warning"
+        "loglevel": "warning" //可注释或编辑2-4
     },
     "inbounds": [
         {
-            "port": 10800,
+            "port": 10800, //可自定义
             "listen": "127.0.0.1",
             "protocol": "socks",
             "settings": {
-                "udp": true
+                "udp": true //不需要可关闭 false
             }
         }
     ],
